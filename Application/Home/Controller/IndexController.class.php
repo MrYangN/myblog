@@ -17,7 +17,7 @@ class IndexController extends AllowController {
        	$this->display("index");
     }
     //手机页面
-    public function index2(){
+    public function indexphone(){
     	$this->display("head");
     }
 }
