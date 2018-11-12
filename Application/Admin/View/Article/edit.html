@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>   
+    <title>启东后台管理--新闻</title>
+  </head>
+<body>
+<include file="Index/header" />
+<include file="Index/sidebar" />
+<!-- content  star-->
+<script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+<script type="text/javascript">
+   
+       var ue = UE.getEditor('editor');
+    
+</script>
+ <section id="main-content">
+    <section class="wrapper">
+    <h3>新闻管理/<span style="font-size:18px">编辑新闻</span></h3><hr/>
+      <!-- main star-->
+       <style type="text/css">
+        .form-control{width: 40%}
+        label{font-weight: bold;}
+        select{font-size: 16px;padding-bottom: 3px;padding: 10px}
+      </style> 
+      <form  action="__MODULE__/Article/doEdit" method="post" enctype="multipart/form-data" >
+        <div class="form-group">
+          <label for="name">新闻标题</label>
+          <input type="text" class="form-control" id="name" name="title" value="{$res.title}">
+          <input type="hidden" value="{$res.id}" name="id">
+          <input type="hidden" value="{$res.releaseTime}" name="releaseTime">
+          <input type="hidden" value="{$res.newsImg}" name="newsImg">
+        </div><hr/>
+         <div class="form-group">
+          <label>选择文章类型:</label>
+          <select id="province"  name="type"> 
+                <if condition="$res.type eq 1">
+                <option value="1">----情感故事----</option> 
+                 </if>
+                 <if condition="$res.type eq 2">
+                <option value="2">----技术分享----</option> 
+                 </if>
+               <option value="1">情感故事</option> 
+               <option value="2">技术分享</option> 
+           </select> 
+           <select class="city"> 
+              <option value="{$res.minType}">----{$typename}----</option> 
+           </select> 
+           <select class="city" name="minType1">
+                <foreach name="first" item="row"> 
+                  <option value="{$row.id}">{$row.typename}</option>
+                </foreach>
+           </select>  
+           <select class="city"  name="minType2"> 
+                <foreach name="second" item="list"> 
+                  <option value="{$list.id}">{$list.typename}</option>
+                </foreach>
+           </select> 
+        </div><hr/>
+        <div class="form-group">
+          <label for="au">新闻作者</label>
+          <input type="text" class="form-control" id="au" name="author" value="{$res.author}" >
+        </div><hr/>
+        原图片：<img src="__PUBLIC__/Uploads/admin/{$res.images}" alt="新闻图片" style="width:200px;height:200px"><hr/>
+        <div class="form-group">
+          <label for="inputfile">新闻标题图片(<span style="color:red;font-size:12px"> * 编辑新闻需要重新上传图片</span>)</label>
+          <input type="file" id="inputfile" name="newsImg" value="{$res.newsImg}">
+        </div><hr/>
+        <!-- 加载编辑器的容器 -->
+        <textarea name="content" id="editor" style="height:200px">
+        {$res.content}
+        </textarea>
+        <button type="submit" class="btn btn-default" style="margin-top:15px" id="tijiao">提交</button>
+      </form>
+      <!-- main end -->
+<!-- content  end -->
+<include file="Index/foot" />
+
+<script type="text/javascript">
+// 文章类型选择下拉列表
+var currentShowCity=0;
+$(document).ready(function(){
+   $("#province").change(function(){
+     $("#province option").each(function(i,o){
+       if($(this).attr("selected"))
+       {
+         $(".city").hide();
+         $(".city").eq(i).show();
+         currentShowCity=i;
+       }
+     });
+
+   });
+   $("#province").change();
+});
+</script>

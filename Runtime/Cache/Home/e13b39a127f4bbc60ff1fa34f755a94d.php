@@ -1,0 +1,227 @@
+<?php if (!defined('THINK_PATH')) exit();?><html lang="en">
+    <head>
+        <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/Public/css/style.css" rel="stylesheet" type="text/css" >
+        <link href="/Public/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/Public/css/nav.css" rel="stylesheet" type="text/css" />
+        <link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+        <link href="/Public/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <script src="/Public/js/jquery-1.8.3.min.js"></script>
+        <script src="/Public/js/wySilder.min.js"></script>
+
+
+    </head>
+    <body style=" background-color: #f6f6f6">
+        <!-- 导航开始 -->
+        <div class="top">
+            <div class="nav">
+                <span class="nav_btn left">
+                    <img src="/Public/img/home/daohang2.png" alt="nav" />
+                </span>
+                <span class="logo_m">
+                    <img src="/Public/img/home/MrYang.jpg" alt="LOGO">
+                </span>
+                <span class="sousuo">
+                    <a href="#" onclick="show()" id="showSearch"><i class="fa fa-search"></i></a>
+                    <a href="#" onclick="hide()" id="hideSearch"><i class="fa fa-times"></i></a>
+                </span>
+            </div>
+            <div class="bgDiv"></div>
+            <div class="leftNav">
+                <a href="/Home/Index/index"><span class="menu">首页</span></a>
+                <a href="/Home/Love/lindex"><span class="menu">情感故事</span></a>
+                <a href="/Home/Technique/tindex"><span class="menu">技术分享</span></a>
+                <a href=""><span class="menu">此时此刻</span></a>
+                <a href=""><span class="menu">关于我</span></a>
+                <a href=""><span class="menu">给我留言</span></a>
+            </div>
+        </div>
+        <!-- 搜索框开始 -->
+        <div class="search_m" >
+            <form action="" method="get">
+                <input type="text" name="title" placeholder="输入您想查找的关键字">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+       <!-- 面包屑 -->
+        <div id="m_mianbx">
+            <img src="/Public/img/home/address.png" width="20px";height="20px">
+             <a href="/Home/Index/index2"><span>首页</span></a> >>
+            <span style="color:#9AB9F7;font-size:14px">情感故事</span>
+        </div>
+        <!-- 文章列表 -->
+        <article class="m_list">
+            <a href="/Home/Love/ldetail" class="focus">
+                <img src="/Public/img/home/qinggan.jpg" alt="最新文章">
+            </a>
+            <header>
+                <span><a href="/Home/Love/ldetail" target="_blank" style="color: #759b08;margin-left:5px;font-size:12px">【亲情】</a></span>
+                <h2><a href="/Home/Love/ldetail">俄罗斯摄影师Elena Shumilova摄影作品欣赏</a></h2>
+            </header>
+            <p class="meta">
+                <time><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-11-22</time>
+                <span class="pv"><i class="fa fa-eye"></i>&nbsp;&nbsp;阅读(33)</span>
+                <a href="/Home/Love/ldetail" class="conment"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;评论(0)</a>
+            </p>
+        </article>
+        <article class="m_list">
+            <a href="" class="focus">
+                <img src="/Public/img/home/qinggan.jpg" alt="最新文章">
+            </a>
+            <header>
+                <span><a href="" target="_blank" style="color: #9AB9F7;margin-left:5px;font-size:12px">【爱情】</a></span>
+                <h2><a href="">俄罗斯摄影师Elena Shumilova摄影作品欣赏</a></h2>
+            </header>
+            <p class="meta">
+                <time><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-11-22</time>
+                <span class="pv"><i class="fa fa-eye"></i>&nbsp;&nbsp;阅读(33)</span>
+                <a href="" class="conment"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;评论(0)</a>
+            </p>
+        </article>
+        <article class="m_list">
+            <a href="" class="focus">
+                <img src="/Public/img/home/qinggan.jpg" alt="最新文章">
+            </a>
+            <header>
+                <span><a href="" target="_blank" style="color: #759b08;margin-left:5px;font-size:12px">【其他】</a></span>
+                <h2><a href="">俄罗斯摄影师Elena Shumilova摄影作品欣赏</a></h2>
+            </header>
+            <p class="meta">
+                <time><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-11-22</time>
+                <span class="pv"><i class="fa fa-eye"></i>&nbsp;&nbsp;阅读(33)</span>
+                <a href="" class="conment"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;评论(0)</a>
+            </p>
+        </article>
+        <article class="m_list">
+            <a href="" class="focus">
+                <img src="/Public/img/home/qinggan.jpg" alt="最新文章">
+            </a>
+            <header>
+                <span><a href="" target="_blank" style="color: #759b08;margin-left:5px;font-size:12px">【爱情】</a></span>
+                <h2><a href="">俄罗斯摄影师Elena Shumilova摄影作品欣赏</a></h2>
+            </header>
+            <p class="meta">
+                <time><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-11-22</time>
+                <span class="pv"><i class="fa fa-eye"></i>&nbsp;&nbsp;阅读(33)</span>
+                <a href="" class="conment"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;评论(0)</a>
+            </p>
+        </article>
+    </body>
+</html>
+<script type="text/javascript">
+// 点击弹出搜索框
+function show(){
+    $(".search_m").slideDown() ;
+    $("#showSearch").hide();
+    $("#hideSearch").show();
+    $("#hideSearch").css("color","#FF926F")
+    $(".top").css("border-bottom","1px solid #ddd")
+}
+function hide(){
+    $(".search_m").slideUp();
+    $("#showSearch").show();
+    $("#hideSearch").hide();
+    $("#showSearch").css("color","#FF926fgvtw2")
+    $(".top").css("border-bottom","1px solid #fff")
+
+}
+
+ //手机导航适配
+$(function () {
+    var left = $('.left');
+    var right = $('.right');
+    var down = $('.down');
+    var up = $('.up');
+    var bg = $('.bgDiv');
+    var leftNav = $('.leftNav');
+    var rightNav = $('.rightNav');
+    var downNav = $('.downNav');
+    var upNav = $('.upNav');
+
+    showNav(left, leftNav, "left");
+    showNav(right, rightNav, "right");
+    showNav(up, upNav, "up");
+    showNav(down, downNav, "down");
+    function showNav(btn, navDiv, direction) {
+        btn.on('click', function () {
+            bg.css({
+                display: "block",
+                transition: "opacity .5s"
+            });
+            if (direction == "right") {
+                navDiv.css({
+                    right: "0px",
+                    transition: "right 1s"
+                });
+            } else if (direction == "left") {
+                navDiv.css({
+                    left: "0px",
+                    transition: "left 1s"
+                });
+            } else if (direction == "up") {
+                navDiv.css({
+                    top: "0px",
+                    transition: "top 1s"
+                });
+            } else if (direction == "down") {
+                navDiv.css({
+                    bottom: "0px",
+                    transition: "bottom 1s"
+                });
+            }
+
+
+        });
+    }
+
+    $('.menu').each(function () {
+        var dom = $(this);
+        dom.on('click', function () {
+            hideNav();
+         
+        });
+    });
+
+
+    bg.on('click', function () {
+        hideNav();
+    });
+
+    function hideNav() {
+        leftNav.css({
+            left: "-50%",
+            transition: "left .5s"
+        });
+        rightNav.css({
+            right: "-50%",
+            transition: "right .5s"
+        });
+        upNav.css({
+            top: "-40%",
+            transition: "top .5s"
+        });
+        downNav.css({
+            bottom: "-50%",
+            webkitTransition:"bottom .5s",
+            oTransition:"bottom .5s",
+            mozTransition:"bottom .5s",
+            transition: "bottom .5s"
+        });
+        bg.css({
+            display: "none",
+            transition: "display 1s"
+        });
+    }
+});
+
+// 如果是iphone5文章列表不显示评论
+var width = $(window).width();
+            if(width < 321){
+                $(".conment").hide();
+            }else{
+                $(".conment").show();
+            }
+</script>

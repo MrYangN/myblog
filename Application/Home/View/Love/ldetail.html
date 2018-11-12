@@ -1,0 +1,200 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" >
+        <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/nav.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/index.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/js/wySilder.min.js"></script>
+
+
+    </head>
+    <body style=" background-color: #f6f6f6">
+        <!-- 导航开始 -->
+        <div class="top">
+            <div class="nav">
+                <span class="nav_btn left">
+                    <img src="__PUBLIC__/img/home/daohang2.png" alt="nav" />
+                </span>
+                <span class="logo_m">
+                    <img src="__PUBLIC__/img/home/MrYang.jpg" alt="LOGO">
+                </span>
+                <span class="sousuo">
+                    <a href="#" onclick="show()" id="showSearch"><i class="fa fa-search"></i></a>
+                    <a href="#" onclick="hide()" id="hideSearch"><i class="fa fa-times"></i></a>
+                </span>
+            </div>
+            <div class="bgDiv"></div>
+            <div class="leftNav">
+                <a href="__MODULE__/Index/index"><span class="menu">首页</span></a>
+                <a href="__MODULE__/Love/lindex"><span class="menu">情感故事</span></a>
+                <a href="__MODULE__/Technique/tindex"><span class="menu">技术分享</span></a>
+                <a href=""><span class="menu">此时此刻</span></a>
+                <a href=""><span class="menu">关于我</span></a>
+                <a href=""><span class="menu">给我留言</span></a>
+            </div>
+        </div>
+        <!-- 搜索框开始 -->
+        <div class="search_m" >
+            <form action="" method="get">
+                <input type="text" name="title" placeholder="输入您想查找的关键字">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+       <!-- 面包屑 -->
+        <div id="m_mianbx">
+            <img src="__PUBLIC__/img/home/address.png" width="20px";height="20px">
+             <a href="__MODULE__/Index/index2"><span>首页</span></a> >>
+            <span style="font-size:14px;color:#9AB9F7">情感故事</span> >>
+            <span style="color:#FF5E52;font-size:14px">亲情</span>
+        </div>
+        <div id="ltop">
+            <h3>的范围黑乎乎喝喝酒看温江都是</h3>
+            <span>2017-10-20</span><span>阅读(23)</span><span>评论(10)</span>
+        </div>
+        <article class="lcontent">
+            <p>我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。</p>
+            <p>我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。</p>
+            <img src="__PUBLIC__/img/home/qinggan.jpg" alt="">
+            <p>我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。
+            我看到的大部分合影都千篇一律，它们都缺少新意，因为摄影师一直循规蹈矩，就让人在镜头前像个木头一样站着，然后数到3，按下快门。</p>
+        </article>
+        <div class="fenxinag" style="margin-left:20px;padding-bottom:10px;padding-top:10px">
+            <span>分享：</span>
+            <a href="" title="分享到微信"><img src="__PUBLIC__/img/home/weixin2.png" alt="" width="25" height="25" style="margin-left:10px"></a>
+            <img src="__PUBLIC__/img/home/xinlang2.png" alt="" width="25" height="25" style="margin-left:10px">
+            <img src="__PUBLIC__/img/home/QQzone.png" alt="" width="25" height="25" style="margin-left:10px">
+            <img src="__PUBLIC__/img/home/qq2.png" alt="" width="25" height="25" style="margin-left:10px">  
+        </div>
+        <div class="lfoot">
+            <span style="color:rgb(254, 80, 134)">相关文章</span>
+        </div>
+        <ul class="xiangguan">
+            <li><a href="">和黄佳二开晚婚假呵呵就放假</a></li>
+            <li><a href="">和黄佳二开晚婚假呵呵就放假</a></li>
+            <li><a href="">和黄佳二开晚婚假呵呵就放假</a></li>
+            <li><a href="">和黄佳二开晚婚假呵呵就放假</a></li>
+            <li><a href="">和黄佳二开晚婚假呵呵就放假</a></li>
+        </ul>
+    </body>
+</html>
+<script type="text/javascript">
+// 点击弹出搜索框
+function show(){
+    $(".search_m").slideDown() ;
+    $("#showSearch").hide();
+    $("#hideSearch").show();
+    $("#hideSearch").css("color","#FF926F")
+    $(".top").css("border-bottom","1px solid #ddd")
+}
+function hide(){
+    $(".search_m").slideUp();
+    $("#showSearch").show();
+    $("#hideSearch").hide();
+    $("#showSearch").css("color","#FF926fgvtw2")
+    $(".top").css("border-bottom","1px solid #fff")
+
+}
+
+ //手机导航适配
+$(function () {
+    var left = $('.left');
+    var right = $('.right');
+    var down = $('.down');
+    var up = $('.up');
+    var bg = $('.bgDiv');
+    var leftNav = $('.leftNav');
+    var rightNav = $('.rightNav');
+    var downNav = $('.downNav');
+    var upNav = $('.upNav');
+
+    showNav(left, leftNav, "left");
+    showNav(right, rightNav, "right");
+    showNav(up, upNav, "up");
+    showNav(down, downNav, "down");
+    function showNav(btn, navDiv, direction) {
+        btn.on('click', function () {
+            bg.css({
+                display: "block",
+                transition: "opacity .5s"
+            });
+            if (direction == "right") {
+                navDiv.css({
+                    right: "0px",
+                    transition: "right 1s"
+                });
+            } else if (direction == "left") {
+                navDiv.css({
+                    left: "0px",
+                    transition: "left 1s"
+                });
+            } else if (direction == "up") {
+                navDiv.css({
+                    top: "0px",
+                    transition: "top 1s"
+                });
+            } else if (direction == "down") {
+                navDiv.css({
+                    bottom: "0px",
+                    transition: "bottom 1s"
+                });
+            }
+
+
+        });
+    }
+
+    $('.menu').each(function () {
+        var dom = $(this);
+        dom.on('click', function () {
+            hideNav();
+         
+        });
+    });
+
+
+    bg.on('click', function () {
+        hideNav();
+    });
+
+    function hideNav() {
+        leftNav.css({
+            left: "-50%",
+            transition: "left .5s"
+        });
+        rightNav.css({
+            right: "-50%",
+            transition: "right .5s"
+        });
+        upNav.css({
+            top: "-40%",
+            transition: "top .5s"
+        });
+        downNav.css({
+            bottom: "-50%",
+            webkitTransition:"bottom .5s",
+            oTransition:"bottom .5s",
+            mozTransition:"bottom .5s",
+            transition: "bottom .5s"
+        });
+        bg.css({
+            display: "none",
+            transition: "display 1s"
+        });
+    }
+});
+
+// 如果是iphone5文章列表不显示评论
+var width = $(window).width();
+            if(width < 321){
+                $(".conment").hide();
+            }else{
+                $(".conment").show();
+            }
+</script>
+

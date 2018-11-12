@@ -1,0 +1,9 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class OpinionController extends AllowController {
+    public function index(){
+ 
+    	$this->display("index");
+    }
+}

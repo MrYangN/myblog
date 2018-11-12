@@ -1,0 +1,144 @@
+
+<head>
+	<title>杨宁个人博客--文章详情页</title>
+	<meta name="author" content="杨宁">
+	<meta name="keyword" content="个人博客, 个人网站, 情感文章,技术分享,个人博客模板,php,mysql,java">
+	<meta name="description" content="这是杨宁的个人博客,包括情感文章,技术分享,记录生活,留言等">
+    <link href="__PUBLIC__/css/tech.css" rel="stylesheet" type="text/css" />
+</head>
+<include file="Index/header" />
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2 mianbao">
+			<img src="__PUBLIC__/img/home/address.png" alt="面包屑导航"><h2>技术分享<b class="m_erji"> >> {$result['typename']}</b></h2>
+			<span>“&nbsp;&nbsp;学而时习之，不易说乎 ？”&nbsp;&nbsp; —— 孔子</span>
+		</div>
+		<div class="col-md-3">
+			<h2 class="col-md-11 attention" >
+				同类目菜单
+			</h2>
+		</div>
+	</div>
+   <div class="row">
+   		<article class="col-md-5 col-md-offset-2">
+   			<h2>{$list.title}</h2>
+   			<div class="info">
+   				<span>发布时间：{$list.curentTime|date="Y-m-d H:i:s",###}</span><span>作者：{$list.author}</span><span>阅读：{$list.readCount}</span>
+   			</div>
+   			<div class="content">
+   				{$list.content}
+   			</div>
+   			<!-- 打赏 -->
+   			<style type="text/css">
+				#cyReward .cy-reward-btn-red{margin-left: 40%;margin-top: 15px;}
+   			</style>
+   			<!-- 代码1：放在页面需要展示的位置  -->
+			<!-- 如果您配置过sourceid，建议在div标签中配置sourceid、cid(分类id)，没有请忽略  -->
+			<div id="cyReward" role="cylabs" data-use="reward"></div>
+			<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+			<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+			<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+			<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+			<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytoOc55m"></script>
+   			<div class="fenxinag">
+   				<span>分享：</span>
+   				<a href="" title="分享到微信"><img src="__PUBLIC__/img/home/weixin2.png" alt=""></a>
+   				<img src="__PUBLIC__/img/home/xinlang2.png" alt="">
+   				<img src="__PUBLIC__/img/home/QQzone.png" alt="">
+   				<img src="__PUBLIC__/img/home/qq2.png" alt="">	
+   			</div>
+   			<div class="fenye">
+   			<if condition="$lastb.title neq null">
+				<p>上一篇：<a href="">{$lastb['title']}</a></p>
+			</if>
+			<if condition="$nextb.title neq null">
+				<p>下一篇：<a href="">{$nextb['title']}</a></p>
+			</if>
+   			</div>
+   			<!-- 评论 -->
+   			<div id="SOHUCS"></div> 
+			<script type="text/javascript"> 
+			(function(){ 
+			var appid = 'cytoOc55m'; 
+			var conf = '79df39193bc2d05e79135e9c59dfe798'; 
+			var width = window.innerWidth || document.documentElement.clientWidth; 
+			if (width < 960) { 
+			window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
+			</script>
+   			<!-- 评论结束 -->
+   		</article>
+    	<div class="col-md-3">
+    		<div class="col-md-10 zicaidan">
+    			<ul>
+    				<foreach name="vo" item="zi">
+    					<li><a href="">{$zi.typename}</a></li>
+    				</foreach>
+    			</ul>
+    		</div>
+    		<h2 class="col-md-11 attention" >
+					当前时间
+			</h2>
+			<div class="col-md-12" style="position: static;padding-top:0px;border:1px solid #FFCC00;border-radius: 7px;width:70%;padding:0px;height:80px;margin-left:16px">	
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="310" height="75" style="background-color: #fffbf0;">
+				    <param name="movie" value="__PUBLIC__/img/flash2261.swf">
+				    <param name="IsAutoPlay" value="1" />
+				    <param name="quality" value="high">
+				    <embed src="__PUBLIC__/img/flash2261.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="310" height="75" autoplay="true" >
+				    </embed>
+			  	</object>
+			</div>
+			<h2 class="col-md-11 attention" >
+					<span style="color:#349A18">热评文章</span>
+			</h2>
+			<div class="col-md-11" style="min-height:10px; max-height:322px;margin-top:10px;overflow: hidden;">
+				<ul class="hot_list">
+				<foreach name="hot" item="row">
+					<li>
+						<a href=""><img width="80" height="80" alt="" class="pic"  src="__PUBLIC__/Uploads/admin/{$row.images}" /></a>
+						<span class="text">{$row.title}... <br/><a href="">阅读全文&raquo;</a></span>
+						<div class="from">
+							<span class="f_r"><img src="__PUBLIC__/img/home/eyes.png" alt="浏览量" style="width:20px;height:18px"></i><span  style="color:#999">浏览( {$row.readCount} )</span></span>
+							<span class="f_r"><a href=""><img src="__PUBLIC__/img/home/pinglun.png" alt="评论" style="width:17px;height:17px"><span>评论( 100 )</span></a></span>
+						</div>
+					</li>
+				</foreach>
+				</ul>
+			</div>
+			<h2 class="col-md-11 attention" >
+					友情链接
+			</h2>
+			<div class="col-md-11 youlian">
+				<ol class="you_ol"> 
+					<li><a href="">车助网</a></li>
+					<li><a href="">联创商城</a></li>
+					<li><a href="">百度知道</a></li>
+					<li><a href="">新浪微博</a></li>
+					<li><a href="">小青博客</a></li>
+					<li><a href="">创智博客</a></li>
+					<li><a href="">兄弟连</a></li>
+				</ol>
+			</div>
+    	</div>      
+   </div>
+</div>
+
+<script type="text/javascript">
+// 热评文章滚动显示
+$(function(){        
+	setInterval(function(){
+		$('.hot_list li:last').hide().insertBefore($(".hot_list li:first")).slideDown(1000);
+	}, 4000);
+});
+
+// 改变子菜单背景色
+  $(".zicaidan ul li:eq(0)").css("background-color","rgb(251, 185, 46)")
+  $(".zicaidan ul li:eq(1)").css("background-color","rgb(63, 247, 243)")
+  $(".zicaidan ul li:eq(2)").css("background-color","rgb(180, 246, 47)")
+  $(".zicaidan ul li:eq(3)").css("background-color","rgb(84, 247, 168)")
+  $(".zicaidan ul li:eq(4)").css("background-color","rgb(248, 213, 47)")
+  $(".zicaidan ul li:eq(5)").css("background-color","rgb(58, 151, 250)")
+  $(".zicaidan ul li:eq(6)").css("background-color","rgb(254, 80, 134)")
+  $(".zicaidan ul li:eq(7)").css("background-color","rgb(63, 247, 243)")
+  $(".zicaidan ul li:eq(8)").css("background-color","rgb(180, 246, 47)")
+</script>
+<include file="Index/footer" />

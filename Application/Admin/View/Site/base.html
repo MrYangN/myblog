@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>   
+    <title>杨先森博客后台管理--站点设置</title>
+  </head>
+<body>
+<include file="Index/header" />
+<include file="Index/sidebar" />
+<!-- content  star-->
+ <section id="main-content">
+    <section class="wrapper">
+    <h3>站点设置/<span style="font-size:18px">基本设置</span></h3><hr/>
+      <!-- main star-->
+      <style type="text/css">
+        .form-control{width: 60%}
+        label{font-weight: bold;}
+      </style> 
+      <form  action="__MODULE__/Site/SaveConfig" method="post" enctype="multipart/form-data" >
+          <div class="form-group">
+            <label for="name">网站标题</label>
+            <input type="text" class="form-control" id="name" name="title" value="{$res.title}">
+          </div><hr/>
+          <div class="form-group">
+            <label for="keywords">网站关键字</label>
+            <input type="text" class="form-control" id="keywords" name="keywords" value="{$res.keywords}" >
+          </div><hr/>
+            <div class="form-group">
+            <label for="describe">网站描述</label>
+            <input type="text" class="form-control" id="describe" name="describe" value="{$res.describe}" >
+          </div><hr/>
+            <div class="form-group">
+            <label for="copyright">网站版权</label>
+            <input type="text" class="form-control" id="copyright" name="copyright" value="{$res.copyright}" >
+          </div><hr/>
+          <div class="form-group">
+            <label for="inputfile">网站LOGO</label>
+            <input type="file" id="inputfile" name="logo">
+          </div>
+          <div class="form-group">
+            <label >预览</label>
+            <img src="__PUBLIC__/Uploads/logo/{$res.logo}" alt="网站LOGO" style="width:150px;height:60px">
+          </div><hr/>
+          <if condition="$res.switch eq 1">
+          <label>网站开关</label>
+          <div class="switch switch-large" style="margin-left:15px;margin-top:5px">
+              <input type="checkbox" checked value="1"  name="switch" />
+          </div><hr/>
+          <else/>
+           <label>网站开关</label>
+          <div class="switch switch-large" style="margin-left:15px;margin-top:5px">
+              <input type="checkbox"  value="1" name="switch" />
+          </div><hr/>
+          </if>
+          <button type="submit" class="btn btn-default" style="margin-top:15px" id="tijiao">提交</button>
+      </form>
+      <!-- main end -->
+<!-- content  end -->
+<include file="Index/foot" />
+<script src="__PUBLIC__/js/bootstrap-switch.js"></script>

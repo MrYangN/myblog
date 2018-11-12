@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>   
+    <title>杨先森博客后台管理--站点设置</title>
+  </head>
+<body>
+<include file="Index/header" />
+<include file="Index/sidebar" />
+<!-- content  star-->
+ <section id="main-content">
+    <section class="wrapper">
+    <h3>站点设置/<span style="font-size:18px">友链设置</span></h3><hr/>
+      <!-- main star-->
+      <style type="text/css">
+        .form-control{width: 90%;margin-left: 20px}
+        label{font-weight: bold;margin-left: 20px}
+      </style> 
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">添加友链</button><hr/>
+  <!-- 添加友链模态框  star-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">添加友情链接</h4>
+              </div>
+              <form  action="__MODULE__/Site/addBlogroll" method="post">
+                  <div class="form-group">
+                    <label for="name">友链名称</label>
+                    <input type="text" class="form-control"  name="title" placeholder="请输入友链名称">
+                  </div>
+                  <div class="form-group">
+                    <label for="au">链接地址</label>
+                    <input type="text" class="form-control"  name="address" placeholder="请输入链接地址" >
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-primary">提交更改</button>
+                  </div>
+               </form>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+  <!-- 添加友链模态框  end -->
+
+   <!-- 修改友链模态框  star-->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="updateModal">修改友情链接</h4>
+              </div>
+              <form  action="__MODULE__/Site/doUpate" method="post">
+                  <div class="form-group">
+                    <label for="name">友链名称</label>
+                    <input type="text" class="form-control" id="name" name="title" placeholder="请输入友链名称">
+                    <input type="hidden" value="" id="uid" name="id">
+                  </div>
+                  <div class="form-group">
+                    <label for="au">链接地址</label>
+                    <input type="text" class="form-control" id="add" name="address" placeholder="请输入链接地址" >
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-primary">提交更改</button>
+                  </div>
+               </form>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+  <!-- 修改友链模态框  end -->
+  <div class="alert alert-info" style="display:none; background-color:#68dff0" >显示一些提示信息</div>
+   <table class="table table-striped table-advance table-hover">
+      <thead>
+        <tr>
+            <th><i class="fa glyphicon glyphicon-random"></i>友链名称</th>
+            <th><i class="fa glyphicon glyphicon-map-marker"></i>链接地址</th>
+            <th><i class="fa glyphicon glyphicon-wrench"></i> 操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <foreach name="list" item="row">
+          <tr  id="tr_{$row.id}">
+              <td>{$row.title}</td>
+              <td>{$row.address}</td>
+              <td>
+                  <button class="btn btn-primary btn-xs upadte" data-toggle="modal" data-target="#updateModal" data-id="{$row.id}"><i class="fa fa-pencil"></i></button>&nbsp;&nbsp;
+                  <a class="btn btn-danger btn-xs"href="javascript:;"  onclick="if(confirm('确定要删除该友链吗？')){ deleteData({$row.id})}"><i class="fa fa-trash-o "></i></a>
+              </td>
+          </tr>
+          </foreach>
+      </tbody>
+    </table>
+     <!-- 分页 star -->
+    <div class="row" style="margin-top:15px">
+       <div class="col-md-12 pages">{$page}</div>
+    </div>
+    <!-- 分页  end -->
+  <!-- main end -->
+<!-- content  end -->
+<include file="Index/foot" />
+<script type="text/javascript">
+// 删除友链
+  function deleteData(id){
+        $.ajax({
+            type:"POST",
+            url:"__MODULE__/Site/delete/id/"+id,
+            success:function(data){
+                if(data.error == 0){
+                    $('#tr_'+data.id).remove();
+                }
+                $('.alert').html(data.msg).show();
+                setTimeout(function() {
+                    $('.alert').hide();
+                }, 3000);
+            }
+        });
+    }
+// 修改友链
+$(".upadte").click(function(event) {
+    $(this).each(function(){
+      var id = $(this).data("id");
+      $.ajax({
+        type:'post',
+        url:'__MODULE__/Site/updateBlogroll/id/'+id,
+        success:function(msg){
+         if(msg =='no'){
+          alert("修改失败！")
+         }else{
+            $("#name").val(msg.title);
+            $("#add").val(msg.address);
+            $("#uid").val(msg.id);
+         }
+        }
+      })
+    })
+});
+</script>

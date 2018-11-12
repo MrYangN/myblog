@@ -1,0 +1,126 @@
+
+<head>
+	<title>杨宁个人博客--情感故事</title>
+	<meta name="author" content="杨宁">
+	<meta name="keyword" content="个人博客, 个人网站, 情感文章,技术分享,个人博客模板,php,mysql,java">
+	<meta name="description" content="这是杨宁的个人博客,包括情感文章,技术分享,记录生活,留言等">
+    <link href="__PUBLIC__/css/tech.css" rel="stylesheet" type="text/css" />
+</head>
+<include file="Index/header" />
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2 mianbao">
+			<img src="__PUBLIC__/img/home/address.png" alt="面包屑导航"><h2>情感故事</h2>
+			<span>时间的沙漏沉淀着无法逃离的过往和那些讲不出的故事&nbsp;&nbsp; —— Mr.Yang</span>
+		</div>
+		<div class="col-md-3">
+			<h2 class="col-md-11 attention" >
+				同类目菜单
+			</h2>
+		</div>
+	</div>
+   <div class="row">
+   		<div class="col-md-5 col-md-offset-2">
+   		<foreach name="list" item="row">
+   			<article class="bogs" style="padding:30 10">
+				<figure class="col-md-3">
+					<a href="__MODULE__/Love/detail" title="{$row.title}" target="_blank">
+						<img src="__PUBLIC__/Uploads/admin/{$row.images}" alt="文章图片" title="{$row.title}">
+					</a>
+				</figure>
+				<div class=" col-md-9 bogs_list">
+					<h3><a href="__MODULE__/Love/detail" target="_blank">{$row.title}</a></h3>
+					{$row.content|mb_strcut=0,270,utf8}...<a href="__MODULE__/Love/detail" target="_blank" class="xiangqin">[详情]</a>
+					<p class="autor" style="margin:0px;margin-left:20px;margin-top:10px">
+						<span ><img src="__PUBLIC__/img/home/tar.png" alt="文章分类" style="width:20px;height:20px"><a href="__MODULE__/Love/detail" target="_blank" style="color: #759b08;margin-left:5px;font-size:12px">{$row.typename}</a></span>
+						<span class="time" style="padding-left:20px"><img src="__PUBLIC__/img/home/time.png" alt="发表时间" style="width:16px;height:16px"><span style="margin-left:5px;font-size:12px;">{$row.curentTime|date="Y-m-d H:i:s",###}</span></span>
+						<span class="f_r" style="margin-right:30px"><a href="" ><i class="fa fa-thumbs-up"></i></a><span>{$row.up}</span></span>
+						<span class="f_r"><img src="__PUBLIC__/img/home/eyes.png" alt="浏览量" style="width:20px;height:18px"></i><span>浏览( {$row.readCount} )</span></span>
+						<span class="f_r"><a href="__MODULE__/Love/detail"><img src="__PUBLIC__/img/home/pinglun.png" alt="评论" style="width:17px;height:17px"><span>评论( {$row.comment} )</span></a></span>
+					</p>
+				</div>
+			</article>
+		</foreach>
+   		</div>
+    	<aside class="col-md-3">
+    		<div class="col-md-10 zicaidan">
+    			<ul>
+    				<foreach name="vo" item="zi">
+    					<li><a href="">{$zi.typename}</a></li>
+    				</foreach>
+    			</ul>
+    		</div>
+    		<h2 class="col-md-10 attention" >
+					点击排行
+			</h2>
+			<div class="col-md-3 paihang" style="position: static;padding-top:0px">	
+				<ul>
+					<foreach name="num" item="vo">
+						<li class="p_li"><span class="paiNum">1</span>
+						<if condition="$vo.type eq 1">
+							<a href="__MODULE__/Love/detail">{$vo.title|mb_strcut=0,50,utf8} ...</a><span class="readCount">{$vo.readCount}</span>
+						</if>
+						<if condition="$vo.type eq 2">
+							<a href="__MODULE__/Technique/detail">{$vo.title|mb_strcut=0,50,utf8} ...</a><span class="readCount">{$vo.readCount}</span>
+						</if>	
+						</li>
+					</foreach>
+				</ul>
+				<h2 class="col-md-11 attention" >
+					友情链接
+				</h2>
+				<div class="col-md-3 youlian">
+					<ol class="you_ol"> 
+						<li><a href="">车助网</a></li>
+						<li><a href="">联创商城</a></li>
+						<li><a href="">百度知道</a></li>
+						<li><a href="">新浪微博</a></li>
+						<li><a href="">小青博客</a></li>
+						<li><a href="">创智博客</a></li>
+						<li><a href="">兄弟连</a></li>
+					</ol>
+				</div>
+			</div>
+    	</aside>      
+   </div>
+</div>
+
+<script type="text/javascript">
+// 鼠标移到文章列表改变背景色
+$(".bogs").each(function() {
+	$(this).mousemove(function(event) {
+		$(this).css("background-color","#fff")
+	});
+});
+$(".bogs").mouseout(function(event) {
+	$(this).css("background-color","#fffbf0")
+});
+// 改变文章排行数字的颜色
+ $(".paihang ul li:eq(0)").find('.paiNum').css("background-color","#FE5086");
+ $(".paihang ul li:eq(1)").find('.paiNum').css("background-color","#F69523")
+ $(".paihang ul li:eq(2)").find('.paiNum').css("background-color","#63B6F7")
+ $(".paihang ul li:eq(3)").find('.paiNum').css("background-color","#ADA30A")
+ $(".paihang ul li:eq(4)").find('.paiNum').css("background-color","#A98659")
+  // 排行编码
+  $(".paihang ul li:eq(0)").find('.paiNum').text(1)
+  $(".paihang ul li:eq(1)").find('.paiNum').text(2)
+  $(".paihang ul li:eq(2)").find('.paiNum').text(3)
+  $(".paihang ul li:eq(3)").find('.paiNum').text(4)
+  $(".paihang ul li:eq(4)").find('.paiNum').text(5)
+  $(".paihang ul li:eq(5)").find('.paiNum').text(6)
+  $(".paihang ul li:eq(6)").find('.paiNum').text(7)
+  $(".paihang ul li:eq(7)").find('.paiNum').text(8)
+  $(".paihang ul li:eq(8)").find('.paiNum').text(9)
+  $(".paihang ul li:eq(9)").find('.paiNum').text(10)
+  // 改变子菜单背景色
+  $(".zicaidan ul li:eq(0)").css("background-color","rgb(254, 80, 134)")
+  $(".zicaidan ul li:eq(1)").css("background-color","rgb(63, 247, 243)")
+  $(".zicaidan ul li:eq(2)").css("background-color","rgb(180, 246, 47)")
+  $(".zicaidan ul li:eq(3)").css("background-color","rgb(248, 213, 47)")
+  $(".zicaidan ul li:eq(4)").css("background-color","rgb(58, 151, 250)")
+  $(".zicaidan ul li:eq(5)").css("background-color","rgb(84, 247, 168)")
+  $(".zicaidan ul li:eq(6)").css("background-color","rgb(180, 246, 47)")
+  $(".zicaidan ul li:eq(7)").css("background-color","rgb(63, 247, 243)")
+  $(".zicaidan ul li:eq(8)").css("background-color","rgb(251, 185, 46)")
+</script>
+<include file="Index/footer" />
